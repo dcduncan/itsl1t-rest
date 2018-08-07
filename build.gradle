@@ -1,15 +1,16 @@
 buildscript {
-    ext.kotlin_version = '1.2.30'
-    ext.spring_boot_version = '1.5.7.RELEASE'
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
-    }
+	ext.kotlin_version = '1.2.30'
+	ext.spring_boot_version = '2.0.4.RELEASE'
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+	dependencies {
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+		classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
+		classpath 'io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE'
+	}
 }
 
 group 'dcduncan'
@@ -18,25 +19,27 @@ version '0.1-SNAPSHOT'
 apply plugin: 'kotlin'
 apply plugin: "kotlin-spring" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin
 apply plugin: 'org.springframework.boot'
+apply plugin: "io.spring.dependency-management"
 
 jar {
-    baseName = 'itsl1t'
+	baseName = 'itsl1t'
 }
 
 repositories {
-    mavenCentral()
-    jcenter()
+	mavenCentral()
+	jcenter()
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile 'org.springframework.boot:spring-boot-starter-web'
-    testCompile 'org.springframework.boot:spring-boot-starter-test'
+	compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+	kotlinOptions.jvmTarget = "1.8"
 }
 compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+	kotlinOptions.jvmTarget = "1.8"
 }
