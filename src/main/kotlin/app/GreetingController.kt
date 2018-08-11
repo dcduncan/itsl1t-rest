@@ -15,7 +15,6 @@ class GreetingController {
 
 	val counter = AtomicLong()
 
-//	@CrossOrigin(origins = ["http://localhost:3000", "https://itsl1t.herokuapp.com"])
 	@GetMapping("/greeting")
 	fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): Greeting {
 		val greeting = Greeting(counter.incrementAndGet(), "Hello, $name")
