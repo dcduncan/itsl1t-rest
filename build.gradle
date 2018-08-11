@@ -31,6 +31,8 @@ repositories {
 }
 
 dependencies {
+	compile 'com.amazonaws:aws-java-sdk-s3:1.11.384'
+	compile 'javax.xml.bind:jaxb-api:2.4.0-b180725.0427'
 	compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 	compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 	compile 'org.slf4j:slf4j-api:1.7.25'
