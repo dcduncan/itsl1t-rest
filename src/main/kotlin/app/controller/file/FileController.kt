@@ -13,8 +13,8 @@ class FileController {
 		val LOGGER = LoggerFactory.getLogger(FileController::class.java.name)!!
 	}
 
-	@PostMapping("/upload/image")
-	fun uploadImage(@RequestParam("image") images: MultipartFile): String {
+	@PostMapping("/upload/images")
+	fun uploadImage(@RequestParam("images") images: MultipartFile): String {
 
 		if (images.isEmpty) {
 			LOGGER.info("Image was empty")
